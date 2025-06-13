@@ -45,7 +45,7 @@ const Posts = () => {
 
   const addPost = (data) =>
     axios
-      .post("http://localhost:8080/clientes/inserir", data)
+      .post("http://localhost:8080/produtos/inserir", data)
       .then(() => {
         navigate("/loja");
         console.log("deu certo");
