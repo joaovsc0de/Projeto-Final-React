@@ -1,10 +1,27 @@
-*{
+:root {
+  --body_background: #022840;
+  --body_color: #f2f2f2;
+  --link_color: #025373;
+}
+
+[data-theme="dark"] {
+  --body_background: #f2f2f2;
+  --body_color: #022840;
+  --link_color: #037f8c;
+}
+
+* {
+  transition: all 0.3s ease-in-out;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 body {
-    height: 100vh;
-    background-color: rgb(161, 13, 13);
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  height: 100vh;
+  -webkit-font-smoothing: antialised;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(2, 40, 64, 0.5);
 }
