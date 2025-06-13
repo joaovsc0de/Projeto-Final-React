@@ -6,6 +6,7 @@ import More from '../pages/More'
 import Loja from '../pages/Loja'
 import Posts from '../pages/Posts'
 import Cadastro from '../pages/Cadastro'
+import Perfil from '../pages/Perfil'
 
 const AppRouter = () => {
   return (
@@ -15,6 +16,7 @@ const AppRouter = () => {
       <Route path={'/login'} element={<Login/>}></Route>
       <Route path={'/loja'} element={<Loja/>}></Route> 
       <Route path={'/posts'} element={<Posts/>}></Route>
+      <Route path={'/perfil'} element={<Perfil/>}></Route>
       <Route path={'/update'}></Route>
       <Route path={'/pedido'}></Route>
       <Route path={'/more'} element={<More/>}></Route>

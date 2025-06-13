@@ -26,6 +26,9 @@ export default function Header() {
                             <Link to="/cadastro">Cadastro</Link>
                         </li>
                         <li>
+                            <Link to="/perfil">Perfil</Link>
+                        </li>
+                        <li>
                             <Link to="/loja">Produtos</Link>
                         </li>
                         <li>

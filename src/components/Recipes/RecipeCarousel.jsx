@@ -4,17 +4,10 @@ import './Recipe.module.css';
 import axios from "axios";
 
 const RecipeCard = ({ nome, valor, genero, url }) => {
-  const handleComprar = () => {
-    alert(`Comprar: ${nome}`);
-  };
-
-  const handleVerMais = () => {
-    alert(`Ver Mais sobre: ${nome}`);
-  };
-
+ 
   return (
     <div className="col-md-4 mb-1" style={{padding: '20px'}}>
-      <div className="card p-4 text-center" style={{maxHeight:'60rem' /*backgroundColor:"rgb(161, 13, 13"}*/}}>
+      <div className="card p-4 text-center" style={{maxHeight:'60rem', /*backgroundColor:"rgb(161, 13, 13"}*/}}>
         {url && (
           <img
             src={url}
@@ -34,6 +27,9 @@ const RecipeCard = ({ nome, valor, genero, url }) => {
           <button className="btn btn-primary" onClick={handleVerMais}>
             Ver Mais
           </button>
+          <button className="btn btn-danger me-2" onClick={()=>deletePost(post.id)}>
+            Excluir
+          </button>
         </div>
       </div>
     </div>
@@ -51,6 +47,17 @@ const RecipeCarousel = () => {
             console.error("Erro ao buscar jogos: ", error)
         })
   }, []); 
+
+  function deletePost(id){
+        axios.delete(`http://localhost:8080/produtos/deletar/${id}`)
+        .then(()=>{
+            console.log("Apagado com sucesso");
+            setJogos(posts.filter((post) => post.id !==id ))           
+        }).catch(()=>{
+            console.error("Não encontrado.");
+            
+        })
+    }
 
    return (
     <div className="container-fluid"> 
