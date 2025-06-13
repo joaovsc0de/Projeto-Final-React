@@ -1,10 +1,11 @@
 import Header from "../../components/Header"
-
+import RecipeCarousel from '../../components/Recipes/RecipeCarousel'
 const Home = () => {
   return (
-    <div className="container">
-        <Header/>
-        <p>Bem Vindo a melhor loja de games online!</p>      
+    <div>
+    <Header />
+    <h1>oi</h1>
+    {/* <RecipeCarousel /> */}
     </div>
   )
 }

@@ -1,31 +1,39 @@
-import { Link } from "react-router-dom";
-import * as styles from"./Header.module.css"
 
-const Header = () => {
-  return (
-    <header className={styles.header}>
-         <div className="container">       
-            <h1 className={styles.titulo}>Dragon Store</h1> 
-                    
+import { Link } from "react-router-dom";
+import img from'../../assets/pngegg.png';
+import styles from "./Header.module.css";
+
+export default function Header() {
+    return (
+        <header>
+            <div className={styles["logo-container"]}>
+            <img src={img} alt="deu ruim" />
+            <h2>Dragon Store </h2>
+            </div>
+
+            <div className={styles["menu"]}>
+                <nav>
                     <ul>
                         <li>
-                            <Link to={"/"}>Home</Link>
+                            <Link to="/">Home</Link>
+                        </li>
+
+                        <li>
+                            <Link to="/login">Login</Link>
+                        </li>
+
+                        <li>
+                            <Link to="/cadastro">Cadastro</Link>
                         </li>
                         <li>
-                            <Link to={"/login"}>Login</Link>
+                            <Link to="/loja">Produtos</Link>
                         </li>
-                        {/* <li>
-                            <Link to={"/loja"}>Carrinho</Link>
-                     </li> */}
-                      <li>
-                            <Link to={"/more"}>Saiba mais</Link>
-                     </li>
-                        
+                        <li>
+                            <Link to="/carrinho">Carrinho</Link>
+                        </li>                   
                     </ul>
-                </div> 
-              
+                </nav>
+            </div>
         </header>
-  )
+    )
 }
-
-export default Header
