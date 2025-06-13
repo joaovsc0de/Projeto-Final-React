@@ -9,13 +9,8 @@ const Home = () => {
   return (
     <div className={styles.Header}>
     <Header />
-<<<<<<< Styles
     <UncontrolledExample/>
-=======
-    <h1>oi</h1>
-    {/* <RecipeCarousel /> */}
     <FooterMain/>
->>>>>>> main
     </div>
   )
 }
