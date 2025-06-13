@@ -48,8 +48,6 @@ const DarkMode = () => {
         defaultChecked={selectTheme === "dark"}
       />
       <label className="dark_mode_label" htmlFor="darkmode-toggle">
-        <img src="{sunIcon}" alt="Sun Icon" />
-        <img src="{moonIcon}" alt="Moon Icon" />
       </label>
     </div>
   );

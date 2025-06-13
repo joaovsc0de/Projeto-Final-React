@@ -2,6 +2,7 @@
 import { Link } from "react-router-dom";
 import img from'../../assets/pngegg.png';
 import styles from "./Header.module.css";
+import DarkMode from "../DarkMode/DarkMode";
 
 export default function Header() {
     return (
@@ -21,19 +22,16 @@ export default function Header() {
                         <li>
                             <Link to="/login">Login</Link>
                         </li>
-
-                        <li>
-                            <Link to="/cadastro">Cadastro</Link>
-                        </li>
                         <li>
                             <Link to="/perfil">Perfil</Link>
                         </li>
                         <li>
                             <Link to="/loja">Produtos</Link>
                         </li>
-                        <li>
+                        {/* <li>
                             <Link to="/posts">Inserir</Link>
-                        </li>                   
+                        </li>      */}
+                        <DarkMode />              
                     </ul>
                 </nav>
             </div>
