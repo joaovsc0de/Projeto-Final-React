@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './Recipe.module.css'; 
 import axios from "axios";
 
-const RecipeCard = ({ nome, valor, genero, url }) => {
+const RecipeCard = ({ nome, valor, genero, url, deletePost }) => {
   const handleComprar = () => {
     alert(`Comprar: ${nome}`);
   };
@@ -11,6 +11,7 @@ const RecipeCard = ({ nome, valor, genero, url }) => {
   const handleVerMais = () => {
     alert(`Ver Mais sobre: ${nome}`);
   };
+
 
   return (
     <div className="col-md-4 mb-4" style={{ padding: "20px" }}>
@@ -69,7 +70,27 @@ const RecipeCarousel = () => {
         console.error("Erro ao buscar jogos: ", error);
       });
   }, []);
+    axios
+      .get("http://localhost:8080/produtos/listar")
+      .then((response) => {
+        setJogos(response.data);
+      })
+      .catch((error) => {
+        console.error("Erro ao buscar jogos: ", error);
+      });
+  }, []);
 
+  const deletePost = (id) => {
+    axios
+      .delete(`http://localhost:8080/produtos/deletar/${id}`)
+      .then(() => {
+        console.log("Apagado com sucesso");
+        setJogos((prevJogos) => prevJogos.filter((jogo) => jogo.id !== id));
+      })
+      .catch(() => {
+        console.error("Não encontrado.");
+      });
+  };
   const deletePost = (id) => {
     axios
       .delete(`http://localhost:8080/produtos/deletar/${id}`)
@@ -85,6 +106,9 @@ const RecipeCarousel = () => {
   return (
     <div className="container-fluid" style={{ padding: "2rem", background: "linear-gradient(to bottom, #4b0000, #000)" }}>
       <div className="row justify-content-center" style={{ gap: "2rem" }}>
+  return (
+    <div className="container-fluid" style={{ padding: "2rem", background: "linear-gradient(to bottom, #4b0000, #000)" }}>
+      <div className="row justify-content-center" style={{ gap: "2rem" }}>
         {jogos.map((jogo) => (
           <RecipeCard 
             key={jogo.id || jogo.nome} 
@@ -92,6 +116,8 @@ const RecipeCarousel = () => {
             nome={jogo.nome} 
             genero={jogo.categoria}
             valor={jogo.valor} 
+            id={jogo.id}
+            deletePost={deletePost}
             id={jogo.id}
             deletePost={deletePost}
           />
