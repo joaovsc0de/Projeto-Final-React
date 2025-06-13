@@ -26,10 +26,13 @@ export default function Header() {
                             <Link to="/cadastro">Cadastro</Link>
                         </li>
                         <li>
+                            <Link to="/perfil">Perfil</Link>
+                        </li>
+                        <li>
                             <Link to="/loja">Produtos</Link>
                         </li>
                         <li>
-                            <Link to="/carrinho">Carrinho</Link>
+                            <Link to="/posts">Inserir</Link>
                         </li>                   
                     </ul>
                 </nav>

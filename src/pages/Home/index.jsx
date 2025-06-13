@@ -1,13 +1,17 @@
+import UncontrolledExample from "../../components/Carousel/UncontrolledExample"
 import Header from "../../components/Header"
-import RecipeCarousel from '../../components/Recipes/RecipeCarousel'
+import * as styles from './Home.module.css'
+import Footer from '../../components/Footer'
+
 const Home = () => {
-  return (
-    <div>
-    <Header />
-    <h1>oi</h1>
-    {/* <RecipeCarousel /> */}
-    </div>
-  )
+    return (
+        <div className={styles.Header}>
+            <Header />
+            <UncontrolledExample />
+            <Footer />
+
+        </div>
+    )
 }
 
 export default Home
