@@ -29,7 +29,7 @@ export default function Header() {
                             <Link to="/loja">Produtos</Link>
                         </li>
                         <li>
-                            <Link to="/carrinho">Carrinho</Link>
+                            <Link to="/posts">Inserir</Link>
                         </li>                   
                     </ul>
                 </nav>
