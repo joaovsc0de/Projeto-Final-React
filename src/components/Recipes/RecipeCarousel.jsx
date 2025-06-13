@@ -45,9 +45,7 @@ const RecipeCard = ({ nome, valor, genero, url, deletePost }) => {
           <button className="btn btn-success me-2" onClick={handleComprar}>
             Comprar
           </button>
-          <button className="btn btn-primary me-2" onClick={handleVerMais}>
-            Ver Mais
-          </button>
+
           <button className="btn btn-danger" onClick={() => deletePost(post.id)}>
             Excluir
           </button>
@@ -70,16 +68,7 @@ const RecipeCarousel = () => {
         console.error("Erro ao buscar jogos: ", error);
       });
   }, []);
-    axios
-      .get("http://localhost:8080/produtos/listar")
-      .then((response) => {
-        setJogos(response.data);
-      })
-      .catch((error) => {
-        console.error("Erro ao buscar jogos: ", error);
-      });
-  }, []);
-
+   
   const deletePost = (id) => {
     axios
       .delete(`http://localhost:8080/produtos/deletar/${id}`)
@@ -91,21 +80,7 @@ const RecipeCarousel = () => {
         console.error("Não encontrado.");
       });
   };
-  const deletePost = (id) => {
-    axios
-      .delete(`http://localhost:8080/produtos/deletar/${id}`)
-      .then(() => {
-        console.log("Apagado com sucesso");
-        setJogos((prevJogos) => prevJogos.filter((jogo) => jogo.id !== id));
-      })
-      .catch(() => {
-        console.error("Não encontrado.");
-      });
-  };
-
-  return (
-    <div className="container-fluid" style={{ padding: "2rem", background: "linear-gradient(to bottom, #4b0000, #000)" }}>
-      <div className="row justify-content-center" style={{ gap: "2rem" }}>
+  
   return (
     <div className="container-fluid" style={{ padding: "2rem", background: "linear-gradient(to bottom, #4b0000, #000)" }}>
       <div className="row justify-content-center" style={{ gap: "2rem" }}>
@@ -118,13 +93,11 @@ const RecipeCarousel = () => {
             valor={jogo.valor} 
             id={jogo.id}
             deletePost={deletePost}
-            id={jogo.id}
-            deletePost={deletePost}
+           
           />
         ))}
       </div>
     </div>
   );
-};
-
+}
 export default RecipeCarousel;
