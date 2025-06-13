@@ -53,7 +53,6 @@ const RecipeCarousel = () => {
   }, []); 
 
    return (
-    // Adicione a div com a classe 'container-fluid' aqui
     <div className="container-fluid"> 
       <div className="row" id="recipe-carousel">
         {jogos.map((jogo) => (
