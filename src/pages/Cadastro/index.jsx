@@ -5,6 +5,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Footer from "../../components/Footer";
 
 const validationPost = yup.object().shape({
   nome: yup
@@ -158,6 +159,8 @@ const Posts = () => {
           </div>
         </div>
       </main>
+      <br />
+      <Footer/>
     </div>
   );
 }

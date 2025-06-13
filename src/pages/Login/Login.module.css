@@ -1,20 +1,29 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+
 .container {
-  background-color: #a20808;
-  height: 100vh;
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 40px 20px;
 }
+
 
 .loginBox {
   background-color: #111;
   padding: 40px;
   border-radius: 12px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.6);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6); 
   width: 100%;
   max-width: 400px;
   text-align: center;
   color: white;
+  
 }
 
 .logo {
@@ -77,4 +86,21 @@
 
 .button:hover {
   background-color: #ff1a1a;
+}
+.registerButton {
+  background-color: transparent;
+  border: 2px solid #e00000;
+  color: #e00000;
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.registerButton:hover {
+  background-color: #e00000;
+  color: white;
 }

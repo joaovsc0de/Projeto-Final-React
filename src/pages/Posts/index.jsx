@@ -5,6 +5,9 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import FooterMain from "../../components/FooterMain";
+import Footer from "../../components/Footer";
+import { BsDisplay } from "react-icons/bs";
 
 const validationPost = yup.object().shape({
   nome: yup
@@ -33,7 +36,7 @@ const validationPost = yup.object().shape({
 });
 
 const Posts = () => {
-   let navigate = useNavigate();
+  let navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -42,94 +45,89 @@ const Posts = () => {
 
   const addPost = (data) =>
     axios
-      .post("http://localhost:8080/produtos/inserir", data)
+      .post("http://localhost:8080/clientes/inserir", data)
       .then(() => {
         navigate("/loja");
-        console.log("deu certo");     
+        console.log("deu certo");
       })
       .catch(() => console.error("Deu errado"));
 
   return (
-    <div>
+    <div className={styles.page}>
       <Header />
-      <main>
-        <div className={styles.cardPost}>
-          <h1>Inserir Jogo</h1>
-          <hr />
-          <div className={styles.cardBodyPost}>
-            <form onSubmit={handleSubmit(addPost)}>
-              <div className={styles.fields}>
-                <label htmlFor="nome">Nome:</label>
-                <input
-                  type="text"
-                  id="nome"
-                  name="nome"
-                  {...register("nome")}
-                />
-                <p className={styles.errorMessage}>{errors.nome?.message}</p>
-              </div>
+      <div className={styles.container}>
+  <div className={styles.cardPost}>
+    <img
+      src="src/assets/pngegg.png"
+      alt="Dragon Store Logo"
+      className={styles.logoImage} />
+    <h1 className={styles.title}>Dragon Store</h1>
+    <hr />
 
-              <div className={styles.fields}>
-                <label htmlFor="valor">Valor:</label>
-                <input
-                  type="number"
-                  id="valor"
-                  name="valor"
-                  {...register("valor")}
-                />
-                <p className={styles.errorMessage}>
-                  {errors.valor?.message}
-                </p>
-              </div>
-
-              <div className={styles.fields}>
-                <label htmlFor="categoria">ID da Categoria:</label>
-                <input
-                  type="number"
-                  id="categoria"
-                  name="categoria.id"
-                  {...register("categoria.id")}
-                />
-                <p className={styles.errorMessage}>
-                  {errors.categoria?.message}
-                </p>
-              </div>
-
-              <div className={styles.fields}>
-                <label htmlFor="plataforma">Plataforma:</label>
-                <input
-                  type="text"
-                  id="plataforma"
-                  name="plataforma"
-                  {...register("plataforma")}
-                />
-                <p className={styles.errorMessage}>
-                  {errors.plataforma?.message}
-                </p>
-              </div>
-
-              <div className={styles.fields}>
-                <label htmlFor="plataforma">Url:</label>
-                <input
-                  type="text"
-                  id="url"
-                  name="url"
-                  {...register("url")}
-                />
-                <p className={styles.errorMessage}>
-                  {errors.url?.message}
-                </p>
-              </div>
-              
-              <div className={styles.btnPost}>
-                <button type="submit">Enviar</button>
-              </div>
-            </form>
-          </div>
+    <div className={styles.cardBodyPost}>
+      <form onSubmit={handleSubmit(addPost)}>
+        <div className={styles.fields}>
+          <label htmlFor="nome">Nome:</label>
+          <input
+            type="text"
+            id="nome"
+            {...register("nome")}
+          />
+          <p className={styles.errorMessage}>{errors.nome?.message}</p>
         </div>
-      </main>
+
+        <div className={styles.fields}>
+          <label htmlFor="valor">Valor:</label>
+          <input
+            type="number"
+            id="valor"
+            {...register("valor")}
+          />
+          <p className={styles.errorMessage}>{errors.valor?.message}</p>
+        </div>
+
+        <div className={styles.fields}>
+          <label htmlFor="categoria">ID da Categoria:</label>
+          <input
+            type="number"
+            id="categoria"
+            {...register("categoria.id")}
+          />
+          <p className={styles.errorMessage}>{errors.categoria?.message}</p>
+        </div>
+
+        <div className={styles.fields}>
+          <label htmlFor="plataforma">Plataforma:</label>
+          <input
+            type="text"
+            id="plataforma"
+            {...register("plataforma")}
+          />
+          <p className={styles.errorMessage}>{errors.plataforma?.message}</p>
+        </div>
+
+        <div className={styles.fields}>
+          <label htmlFor="url">Url:</label>
+          <input
+            type="text"
+            id="url"
+            {...register("url")}
+          />
+          <p className={styles.errorMessage}>{errors.url?.message}</p>
+        </div>
+
+        <div className={styles.btnPost}>
+          <button type="submit">ENVIAR</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+      <Footer/>
     </div>
   );
-}
+};
 
-export default Posts
+export default Posts;

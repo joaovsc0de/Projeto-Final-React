@@ -17,20 +17,25 @@ export default function Login() {
           <h1 className={styles.title}>Dragon Store</h1>
         </div>
 
-        <form className={styles.form}>
-          <div className={styles.inputGroup}>
-            <FaUser className={styles.icon} />
-            <input type="text" placeholder="Digite seu nome" className={styles.input} />
-          </div>
+       <form className={styles.form}>
+  <div className={styles.inputGroup}>
+    <FaUser className={styles.icon} />
+    <input type="text" placeholder="Digite seu nome" className={styles.input} />
+  </div>
 
-          <div className={styles.inputGroup}>
-            <FaLock className={styles.icon} />
-            <input type="password" placeholder="Digite sua senha" className={styles.input} />
-          </div>
+  <div className={styles.inputGroup}>
+    <FaLock className={styles.icon} />
+    <input type="password" placeholder="Digite sua senha" className={styles.input} />
+  </div>
 
-          <button type="submit" className={styles.button}>LOGIN</button>
-          <Footer />
-        </form>
+  <button type="submit" className={styles.button}>LOGIN</button>
+
+  <button type="button" className={styles.registerButton} onClick={() => window.location.href = '/cadastro'}>
+    CADASTRAR
+  </button>
+  <Footer />
+</form>
+
       </div>
     </div>
     </div>
