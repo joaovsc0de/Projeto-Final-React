@@ -13,7 +13,7 @@ export default function Footer() {
         <a href="#" className={styles.link}>
           <FaInstagram /> Instagram
         </a>
-        <a href="mailto:contato@dragonstore.com" className={styles.link}>
+        <a href="mailto:darkdragonsstore@gmail.com" className={styles.link}>
           <FaEnvelope /> Contato
         </a>
       </div>
