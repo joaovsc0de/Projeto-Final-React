@@ -1,33 +1,38 @@
-import React from 'react'
-import Header from '../../components/Header'
+import React from 'react';
+import styles from './Login.module.css';
+import { FaUser, FaLock } from 'react-icons/fa';
+import Header from "../../components/Header"
+import Footer from "../../components/Footer"
 
-const Login = () => {
-
+export default function Login() {
   return (
-    <div>       
-         <Header/> 
-        <form >
+    <div>
+      <Header />
+      
+    <div className={styles.container}>
+      
+      <div className={styles.loginBox}>
+        <div className={styles.logo}>
+          <img src="src\assets\pngegg.png" alt="Dragon Store Logo" className={styles.logoImage} />
+          <h1 className={styles.title}>Dragon Store</h1>
+        </div>
 
-            <label htmlFor="">Nome:</label>
-            <input 
-            type="text"
-            placeholder='Digite seu nome'                     
-            />
+        <form className={styles.form}>
+          <div className={styles.inputGroup}>
+            <FaUser className={styles.icon} />
+            <input type="text" placeholder="Digite seu nome" className={styles.input} />
+          </div>
 
-            <br />
+          <div className={styles.inputGroup}>
+            <FaLock className={styles.icon} />
+            <input type="password" placeholder="Digite sua senha" className={styles.input} />
+          </div>
 
-            <label htmlFor="">Senha:</label>
-            <input 
-            type="password"
-            placeholder='Digite sua senha'                     
-            />
-
-            <br />
-            
-            <button type='submit'>Logar</button>
+          <button type="submit" className={styles.button}>LOGIN</button>
+          <Footer />
         </form>
+      </div>
     </div>
-  )
+    </div>
+  );
 }
-
-export default Login
