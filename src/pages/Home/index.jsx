@@ -1,6 +1,7 @@
 import Header from "../../components/Header"
 import RecipeCarousel from '../../components/Recipes/RecipeCarousel'
 import * as styles from './Home.module.css'
+import FooterMain from '../../components/FooterMain'
 
 const Home = () => {
   return (
@@ -8,6 +9,7 @@ const Home = () => {
     <Header />
     <h1>oi</h1>
     {/* <RecipeCarousel /> */}
+    <FooterMain/>
     </div>
   )
 }
