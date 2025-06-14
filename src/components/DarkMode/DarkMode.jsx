@@ -3,9 +3,9 @@ import sunIcon from "./Sun.svg";
 import moonIcon from "./Moon.svg";
 import "./DarkMode.css";
 
-/**
- * Const para selecionar darkmode
- */
+/
+ 
+Const para selecionar darkmode*/
 
 const DarkMode = () => {
   const setDarkMode = () => {
@@ -13,9 +13,9 @@ const DarkMode = () => {
     localStorage.setItem("selectedTheme", "dark");
   };
 
-  /**
-   * Const para selecionar lightmode
-   */
+  /
+   
+Const para selecionar lightmode*/
 
   const setLightMode = () => {
     document.querySelector("body").setAttribute("data-theme", "light");
@@ -28,10 +28,10 @@ const DarkMode = () => {
   }
 
   /**
-   * Logica definida
-   * usando if e else para selecionar
-   * cor light or dark
-   */
+   
+Logica definida
+usando if e else para selecionar
+cor light or dark*/
 
   const toggleTheme = (e) => {
     if (e.target.checked) setDarkMode();

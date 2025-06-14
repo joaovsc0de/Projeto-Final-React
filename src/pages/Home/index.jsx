@@ -9,9 +9,8 @@ const Home = () => {
             <Header />
             <UncontrolledExample />
             <FooterMain />
-
         </div>
     )
 }
 
-export default Home
+export default Home;

@@ -7,6 +7,11 @@ function App() {
   return (
     <>
       <BrowserRouter>
+        <div className="App-header">
+          <header>
+            <DarkMode />
+          </header>
+        </div>
         <AppRouter />
       </BrowserRouter>
     </>
