@@ -15,5 +15,5 @@ const Loja = () => {
     </div>
   )
 }
-
+// console.log("oi");
 export default Loja

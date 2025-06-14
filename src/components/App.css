@@ -23,7 +23,7 @@
   font-size: calc(10px + 2vmin);
   color: var(--body_background);
 }
-
+/* console.log("oi"); */
 .App-link {
   color: var(--link_color);
 }

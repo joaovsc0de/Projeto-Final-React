@@ -12,6 +12,7 @@ const RecipeCard = ({ nome, valor, genero, url, deletePost }) => {
     alert(`Ver Mais sobre: ${nome}`);
   };
 
+console.log("oi");
 
   return (
     <div className="col-md-4 mb-4" style={{ padding: "1rem" }}>

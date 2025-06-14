@@ -7,5 +7,5 @@ const Error = () => {
     </div>
   )
 }
-
+// console.log("oi");
 export default Error

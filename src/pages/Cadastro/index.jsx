@@ -53,7 +53,7 @@ const Posts = () => {
         console.log("deu certo");     
       })
       .catch(() => console.error(data));
-
+// console.log("oi");
   return (
     <div>
       <Header />

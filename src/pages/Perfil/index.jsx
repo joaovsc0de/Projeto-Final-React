@@ -19,7 +19,7 @@ const Perfil = () => {
     <div>
       <Header />
       <main className={styles.perfil-usuario}>
-
+{/* console.log("oi"); */}
       </main>
     </div>
   );

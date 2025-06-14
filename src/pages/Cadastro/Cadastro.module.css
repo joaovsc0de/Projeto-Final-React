@@ -13,7 +13,7 @@ main {
   min-height: calc(100vh - 120px); /* Desconta o tamanho do header e footer */
   padding: 20px; /* Garante espaço extra em telas pequenas */
 }
-
+/* console.log("oi"); */
 .cardPost {
   background-color: #111;
   padding: 40px 60px;

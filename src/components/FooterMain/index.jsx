@@ -21,7 +21,7 @@ export default function MainFooter() {
             <li><a href="/cadastro">Cadastro</a></li>
           </ul>
         </div>
-
+{/* console.log("oi"); */}
         <div className={styles.column}>
           <h3>Siga-nos</h3>
           <div className={styles.social}>

@@ -16,7 +16,7 @@ h2{
     align-items: center;
     gap: 10px;
 }
-
+/* console.log("oi"); */
 .logo-container img {
     height: 60px;
     width: auto;

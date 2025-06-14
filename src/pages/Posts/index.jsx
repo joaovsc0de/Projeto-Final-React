@@ -34,7 +34,7 @@ const validationPost = yup.object().shape({
     .required("A url tem que ser preenchida")
     .max(500, "Tamanho máximo permitido"),
 });
-
+// console.log("oi");
 const Posts = () => {
   let navigate = useNavigate();
   const {

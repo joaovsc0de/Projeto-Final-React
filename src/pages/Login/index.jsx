@@ -16,7 +16,7 @@ export default function Login() {
           <img src="src\assets\pngegg.png" alt="Dragon Store Logo" className={styles.logoImage} />
           <h1 className={styles.title}>Dragon Store</h1>
         </div>
-
+{/* console.log("oi"); */}
        <form className={styles.form}>
   <div className={styles.inputGroup}>
     <FaUser className={styles.icon} />

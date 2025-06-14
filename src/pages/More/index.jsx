@@ -4,5 +4,5 @@ const More = () => {
     <Header />
   )
 }
-
+// console.log("oi");
 export default More

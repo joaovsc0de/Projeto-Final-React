@@ -33,7 +33,7 @@ function UncontrolledExample() {
                     
                 </Carousel.Caption>
             </Carousel.Item>
-
+{/* console.log("oi"); */}
             <Carousel.Item>
                 <img
                     className="d-block w-100"

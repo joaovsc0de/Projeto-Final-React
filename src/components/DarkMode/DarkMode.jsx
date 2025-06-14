@@ -52,5 +52,5 @@ const DarkMode = () => {
     </div>
   );
 };
-
+// console.log("oi");
 export default DarkMode;

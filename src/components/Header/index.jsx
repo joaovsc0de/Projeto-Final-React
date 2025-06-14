@@ -10,6 +10,7 @@ export default function Header() {
             <div className={styles["logo-container"]}>
             <img src={img} alt="deu ruim" />
             <h2>Dragon Store </h2>
+            {/* console.log("oi"); */}
             </div>
 
             <div className={styles["menu"]}>
@@ -20,6 +21,7 @@ export default function Header() {
                         </li>
 
                         <li>
+                            
                             <Link to="/login">Login</Link>
                         </li>
                         <li>
