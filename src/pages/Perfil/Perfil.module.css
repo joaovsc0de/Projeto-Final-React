@@ -1,12 +1,109 @@
-.perfil-usuario {
+
+
+/* Reutilize o estilo do container para centralizar o conteúdo */
+.container {
   display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 10px;
+  min-height: calc(100vh - var(--header-height, 60px)); /* Ajuste se o header tiver altura fixa */
+  padding: 40px 20px; /* Padding ao redor do card de perfil */
 }
 
-.avatar {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
+/* Estilo para o card de perfil, similar ao .loginBox */
+.perfilCard {
+  background-color: rgba(0, 0, 0, 0.7); /* Mesma cor translúcida do loginBox */
+  backdrop-filter: blur(8px);           /* Mesma filtro de desfoque */
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  width: 100%;
+  max-width: 600px; /* Pode ser um pouco maior que o loginBox para exibir mais informações */
+  text-align: center; /* Centraliza o texto dentro do card */
+  color: white;
+  display: flex; /* Usar flexbox para organizar o conteúdo interno */
+  flex-direction: column;
+  gap: 25px; /* Espaço entre os grupos de informação */
 }
-/* console.log("oi"); */
+
+.title {
+  color: #e00000; /* Cor vermelha para o título, como no Dragon Store */
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.clienteInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Espaço entre cada linha de informação (Nome, Email, Endereço) */
+  text-align: left; /* Alinha o texto de volta para a esquerda dentro desta seção */
+  width: 100%; /* Ocupa a largura total do perfilCard */
+}
+
+.infoGroup {
+  display: flex;
+  flex-direction: column; /* Coloca label e valor em linhas separadas */
+  /* Ou row para colocar lado a lado, ajuste como preferir: */
+  /* flex-direction: row; */
+  /* align-items: baseline; */ /* Alinha pela base do texto se for row */
+  gap: 5px; /* Espaço entre label e value */
+}
+
+.label {
+  font-weight: bold;
+  color: #a20808; /* Uma cor ligeiramente diferente para o label, como nos ícones */
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.value {
+  font-size: 18px;
+  color: #f2f2f2; /* Cor principal do texto */
+}
+
+.errorMessage {
+  color: #ff3333; /* Cor vermelha para mensagens de erro */
+  font-weight: bold;
+}
+
+.editButton {
+  background-color: transparent;
+  border: 2px solid #e00000;
+  color: #e00000;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px; /* Espaço acima do botão */
+}
+
+.editButton:hover {
+  background-color: #e00000;
+  color: white;
+}
+
+/* Se você tem um avatar, pode reutilizar */
+.avatar {
+  width: 80px; /* Um pouco maior para o perfil */
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover; /* Para garantir que a imagem preencha o círculo */
+  margin-bottom: 15px; /* Espaço abaixo do avatar */
+  align-self: center; /* Centraliza o avatar se o perfilCard for flex-column */
+}
+
+/* Você pode adicionar um estilo para um avatar placeholder se não houver imagem */
+.avatarPlaceholder {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #333; /* Cor de fundo para o placeholder */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  color: #888;
+  margin-bottom: 15px;
+  align-self: center;
+}
