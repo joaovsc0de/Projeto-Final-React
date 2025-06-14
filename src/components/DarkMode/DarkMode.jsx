@@ -1,6 +1,4 @@
 import React from "react";
-import sunIcon from "./Sun.svg";
-import moonIcon from "./Moon.svg";
 import "./DarkMode.css";
 
 /**
@@ -22,8 +20,12 @@ const DarkMode = () => {
     localStorage.setItem("selectedTheme", "light");
   };
 
+  /**
+   * Condicao inseriada para o darkmode
+   * se for a primeira visita sera null, caso contratio dark
+   */
   const selectTheme = localStorage.getItem("selectedTheme");
-  if (selectTheme === "dark") {
+  if (selectTheme === "dark" || selectTheme === null) {
     setDarkMode();
   }
 
@@ -47,8 +49,7 @@ const DarkMode = () => {
         onChange={toggleTheme}
         defaultChecked={selectTheme === "dark"}
       />
-      <label className="dark_mode_label" htmlFor="darkmode-toggle">
-      </label>
+      <label className="dark_mode_label" htmlFor="darkmode-toggle"></label>
     </div>
   );
 };

@@ -1,24 +1,24 @@
-.carouselfadeexample {
+/* .carouselfadeexample {
   width: 100%;
   max-height: 85vh;
   overflow: auto;
   position: relative;
-}
+} */
 
 /* Imagem de fundo escurecida levemente para legibilidade do texto */
 .carousel_img {
   object-fit: cover;
   object-position: center;
-  width: 100%;
+  width: inherit;
   height: 85vh;
   /* escurece levemente a imagem */
-  filter: brightness(0.5);
+  filter: brightness(0.7);
   filter: contrast(0.8);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease-in;
 }
 
 .carousel_img:hover {
-  transform: scale(1.05);
+  transform: scale(1.5);
 }
 
 /* Estilo do título */
