@@ -1,69 +1,69 @@
 .dark_mode {
-  margin-top: -20px;
-  margin-left: 10px;
+    margin-top: -20px;
+    margin-left: 10px;
 }
 
 .dark_mode_label {
-  width: 40px; /* Reduzido ainda mais */
-  height: 20px; /* Reduzido ainda mais */
-  position: relative;
-  display: block;
-  background: #ebebeb;
-  border-radius: 200px; /* Mantido para garantir o formato oval */
-  box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.4),
-    inset 0px -5px 15px rgba(255, 255, 255, 0.4);
-  cursor: pointer;
-  transition: 0.3s;
+    width: 40px; /* Reduzido ainda mais */
+    height: 20px; /* Reduzido ainda mais */
+    position: relative;
+    display: block;
+    background: #ebebeb;
+    border-radius: 200px; /* Mantido para garantir o formato oval */
+    box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.4),
+        inset 0px -5px 15px rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: 0.3s;
 }
 .dark_mode_label:after {
-  content: "";
-  width: 16px; /* Reduzido ainda mais */
-  height: 16px; /* Reduzido ainda mais */
-  position: absolute;
-  top: 2px; /* Ajustado para centralizar verticalmente (20-16)/2 */
-  left: 2px; /* Ajustado para centralizar horizontalmente */
-  background: linear-gradient(180deg, #fff, #252524);
-  border-radius: 180px;
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
-  transition: 0.3s;
+    content: "";
+    width: 16px; /* Reduzido ainda mais */
+    height: 16px; /* Reduzido ainda mais */
+    position: absolute;
+    top: 2px; /* Ajustado para centralizar verticalmente (20-16)/2 */
+    left: 2px; /* Ajustado para centralizar horizontalmente */
+    background: linear-gradient(180deg, #fff, #252524);
+    border-radius: 180px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
 }
 .dark_mode_input {
-  width: 0;
-  height: 0;
-  visibility: hidden;
+    width: 0;
+    height: 0;
+    visibility: hidden;
 }
 .dark_mode_input:checked + .dark_mode_label {
-  background: #242424;
+    background: #242424;
 }
 .dark_mode_input:checked + .dark_mode_label:after {
-  left: 38px; /* Nova posição: (largura_label - largura_circulo - left_inicial) = (40 - 16 - 2) = 22px. Com translateX, precisa ser mais. Ajustado para o final. */
-  transform: translateX(-100%); /* Mantido */
-  background: linear-gradient(180deg, #777, #3a3a3a);
+    left: 38px; /* Nova posição: (largura_label - largura_circulo - left_inicial) = (40 - 16 - 2) = 22px. Com translateX, precisa ser mais. Ajustado para o final. */
+    transform: translateX(-100%); /* Mantido */
+    background: linear-gradient(180deg, #777, #3a3a3a);
 }
 .dark_mode_label:active:after {
-  width: 20px; /* Reduzido */
+    width: 20px; /* Reduzido */
 }
 
 /* Ajustes para os ícones SVG, se estiverem sendo usados */
 .dark_mode_label svg {
-  position: absolute;
-  width: 12px; /* Ajuste o tamanho dos ícones */
-  top: 4px; /* Ajuste a posição vertical */
-  z-index: 100;
+    position: absolute;
+    width: 12px; /* Ajuste o tamanho dos ícones */
+    top: 4px; /* Ajuste a posição vertical */
+    z-index: 100;
 }
 .dark_mode_label svg.sun {
-  left: 4px; /* Ajuste a posição horizontal */
-  fill: #fff;
-  transition: 0.3s;
+    left: 4px; /* Ajuste a posição horizontal */
+    fill: #fff;
+    transition: 0.3s;
 }
 .dark_mode_label svg.moon {
-  left: 24px; /* Ajuste a posição horizontal */
-  fill: #7e7e7e;
-  transition: 0.3s;
+    left: 24px; /* Ajuste a posição horizontal */
+    fill: #7e7e7e;
+    transition: 0.3s;
 }
 .dark_mode_input:checked + .dark_mode_label svg.sun {
-  fill: #7e7e7e;
+    fill: #7e7e7e;
 }
 .dark_mode_input:checked + .dark_mode_label svg.moon {
-  fill: #fff;
+    fill: #fff;
 }
