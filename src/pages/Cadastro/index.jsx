@@ -52,7 +52,7 @@ const Posts = () => {
         navigate("/loja");
         console.log("deu certo");     
       })
-      .catch(() => console.error("Deu errado"));
+      .catch(() => console.error(data));
 
   return (
     <div>

@@ -9,7 +9,7 @@ header {
   height: 100px;
 }
 h2 {
-  font-family: "LORA", serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 .logo-container {
   display: flex;
