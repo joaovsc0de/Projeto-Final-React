@@ -4,12 +4,12 @@
 }
 
 .dark_mode_label {
-    width: 65px;
-    height: 30px;
+    width: 40px; /* Reduzido ainda mais */
+    height: 20px; /* Reduzido ainda mais */
     position: relative;
     display: block;
     background: #ebebeb;
-    border-radius: 200px;
+    border-radius: 200px; /* Mantido para garantir o formato oval */
     box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.4),
         inset 0px -5px 15px rgba(255, 255, 255, 0.4);
     cursor: pointer;
@@ -17,12 +17,12 @@
 }
 .dark_mode_label:after {
     content: "";
-    width: 25px;
-    height: 25px;
+    width: 16px; /* Reduzido ainda mais */
+    height: 16px; /* Reduzido ainda mais */
     position: absolute;
-    top: 3px;
-    left: 3px;
-    background: linear-gradient(180deg, #ffcc89, #d8860b);
+    top: 2px; /* Ajustado para centralizar verticalmente (20-16)/2 */
+    left: 2px; /* Ajustado para centralizar horizontalmente */
+    background: linear-gradient(180deg, #fff, #252524);
     border-radius: 180px;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
     transition: 0.3s;
@@ -36,27 +36,28 @@
     background: #242424;
 }
 .dark_mode_input:checked + .dark_mode_label:after {
-    left: 62px;
-    transform: translateX(-100%);
+    left: 38px; /* Nova posição: (largura_label - largura_circulo - left_inicial) = (40 - 16 - 2) = 22px. Com translateX, precisa ser mais. Ajustado para o final. */
+    transform: translateX(-100%); /* Mantido */
     background: linear-gradient(180deg, #777, #3a3a3a);
 }
 .dark_mode_label:active:after {
-    width: 30px;
+    width: 20px; /* Reduzido */
 }
 
+/* Ajustes para os ícones SVG, se estiverem sendo usados */
 .dark_mode_label svg {
     position: absolute;
-    width: 20px;
-    top: 5px;
+    width: 12px; /* Ajuste o tamanho dos ícones */
+    top: 4px; /* Ajuste a posição vertical */
     z-index: 100;
 }
 .dark_mode_label svg.sun {
-    left: 5px;
+    left: 4px; /* Ajuste a posição horizontal */
     fill: #fff;
     transition: 0.3s;
 }
 .dark_mode_label svg.moon {
-    left: 40px;
+    left: 24px; /* Ajuste a posição horizontal */
     fill: #7e7e7e;
     transition: 0.3s;
 }
