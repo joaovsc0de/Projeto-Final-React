@@ -30,9 +30,9 @@ export default function Header() {
                         <li>
                             <Link to="/loja">Produtos</Link>
                         </li>
-                        {/* <li>
+                        <li>
                             <Link to="/posts">Inserir</Link>
-                        </li>      */}
+                        </li>     
                         <DarkMode />              
                     </ul>
                 </nav>
