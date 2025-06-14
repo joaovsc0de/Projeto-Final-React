@@ -24,5 +24,5 @@ const AppRouter = () => {
     </Routes>
   )
 }
-// console.log("oi");
+
 export default AppRouter
