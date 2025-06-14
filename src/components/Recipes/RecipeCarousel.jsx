@@ -14,7 +14,7 @@ const RecipeCard = ({ nome, valor, genero, url, deletePost }) => {
 
 
   return (
-    <div className="col-md-4 mb-4" style={{ padding: "20px" }}>
+    <div className="col-md-4 mb-4" style={{ padding: "1rem" }}>
       <div
         className="card p-4 text-center"
         style={{
