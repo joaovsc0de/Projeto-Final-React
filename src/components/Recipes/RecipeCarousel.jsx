@@ -3,26 +3,19 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './Recipe.module.css'; 
 import axios from "axios";
 
-const RecipeCard = ({ nome, valor, genero, url, deletePost }) => {
+const RecipeCard = ({ nome, valor, genero, url, id, deletePost }) => {
   const handleComprar = () => {
     alert(`Comprar: ${nome}`);
   };
-
-  const handleVerMais = () => {
-    alert(`Ver Mais sobre: ${nome}`);
-  };
-
-console.log("oi");
-
   return (
     <div className="col-md-4 mb-4" style={{ padding: "1rem" }}>
       <div
         className="card p-4 text-center"
         style={{
           backgroundColor: "#131416", // Fundo escuro (#131416)
-          color: "#fff", // Texto branco
-          borderRadius: "15px", // Bordas arredondadas
-          boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.3)", // Sombra
+          color: "#fff", 
+          borderRadius: "15px", 
+          boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.3)", 
         }}
       >
         {url && (
@@ -47,7 +40,10 @@ console.log("oi");
             Comprar
           </button>
 
-          <button className="btn btn-danger" onClick={() => deletePost(post.id)}>
+          <button className="btn btn-danger" onClick={() =>{
+            console.log(nome);
+            deletePost(parseInt(id))}
+          } >
             Excluir
           </button>
         </div>
@@ -64,18 +60,21 @@ const RecipeCarousel = () => {
       .get("http://localhost:8080/produtos/listar")
       .then((response) => {
         setJogos(response.data);
+        console.log(jogos.map((jogo)=> console.log(jogo.id)));
+        
       })
       .catch((error) => {
         console.error("Erro ao buscar jogos: ", error);
       });
   }, []);
    
-  const deletePost = (id) => {
+  const deletePoste = (id) => {
     axios
       .delete(`http://localhost:8080/produtos/deletar/${id}`)
       .then(() => {
         console.log("Apagado com sucesso");
-        setJogos((prevJogos) => prevJogos.filter((jogo) => jogo.id !== id));
+        
+        setJogos(jogos.filter((jogo) => jogo.id !== id));
       })
       .catch(() => {
         console.error("Não encontrado.");
@@ -93,9 +92,9 @@ const RecipeCarousel = () => {
             genero={jogo.categoria}
             valor={jogo.valor} 
             id={jogo.id}
-            deletePost={deletePost}
-           
+            deletePost={deletePoste}     
           />
+          
         ))}
       </div>
     </div>
