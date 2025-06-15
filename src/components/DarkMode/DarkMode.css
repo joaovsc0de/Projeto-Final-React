@@ -15,6 +15,7 @@
   cursor: pointer;
   transition: 0.3s;
 }
+
 .dark_mode_label:after {
   content: "";
   width: 16px; /* Reduzido ainda mais */
@@ -67,4 +68,3 @@
 .dark_mode_input:checked + .dark_mode_label svg.moon {
   fill: #fff;
 }
-/* console.log("oi"); */

@@ -1,33 +1,61 @@
 .footer {
   background-color: #111;
-  color: white;
-  padding: 40px 20px 20px 20px;
-  font-family: 'Segoe UI', sans-serif;
+  color: #eee;
+  padding: 2rem 1rem;
+  font-family: "Segoe UI", sans-serif;
 }
 
 .container {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 2rem;
   max-width: 1200px;
   margin: auto;
 }
 
 .column {
   flex: 1;
-  min-width: 200px;
+  min-width: 220px;
 }
-/* console.log("oi"); */
+
 .column h3 {
   color: #e00000;
-  margin-bottom: 15px;
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
 }
 
 .column p,
-.column ul {
-  font-size: 14px;
+.column ul,
+.column li,
+.column a {
   color: #ccc;
+  font-size: 1rem;
+  line-height: 1.6;
+  list-style: none;
+  text-decoration: none;
+}
+
+.social {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.3rem;
+}
+
+.social a {
+  color: #ff0000;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+.copy {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  font-weight: bold;
+  margin-top: 30px;
+  color: #777;
 }
 
 .column ul {
@@ -58,11 +86,11 @@
 
 .social a:hover {
   color: #ff3333;
+  text-decoration: underline;
 }
 
-.copy {
-  text-align: center;
-  margin-top: 30px;
-  font-size: 13px;
-  color: #777;
+.paragrafo {
+  font-weight: bold;
+  letter-spacing: normal;
+  text-align: left;
 }

@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Heebo', sans-serif;
+  font-family: "Heebo", sans-serif;
   background-color: #990000;
   color: #fff;
 }
@@ -13,7 +13,6 @@ main {
   min-height: calc(100vh - 120px); /* Desconta o tamanho do header e footer */
   padding: 20px; /* Garante espaço extra em telas pequenas */
 }
-/* console.log("oi"); */
 .cardPost {
   background-color: #111;
   padding: 40px 60px;

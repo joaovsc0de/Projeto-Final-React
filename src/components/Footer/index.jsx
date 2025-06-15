@@ -1,6 +1,6 @@
-import React from 'react';
-import styles from './Footer.module.css';
-import { FaInstagram, FaEnvelope } from 'react-icons/fa';
+import React from "react";
+import styles from "./Footer.module.css";
+import { FaInstagram, FaEnvelope } from "react-icons/fa";
 
 export default function Footer() {
   return (
@@ -10,10 +10,13 @@ export default function Footer() {
       </div>
 
       <div className={styles.links}>
-        <a href="#" className={styles.link}>
+        <a
+          href="https://www.instagram.com/serratecoficial/"
+          target="_blank"
+          className={styles.link}
+        >
           <FaInstagram /> Instagram
         </a>
-        {/* console.log("oi"); */}
         <a href="mailto:darkdragonsstore@gmail.com" className={styles.link}>
           <FaEnvelope /> Contato
         </a>

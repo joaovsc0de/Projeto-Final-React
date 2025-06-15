@@ -17,9 +17,9 @@ const validationPost = yup.object().shape({
     .required("O telefone tem que ser preenchido")
     .max(150, "Tamanho máximo permitido"),
   email: yup
-      .string()
-      .required("O email deve ser preenchido")
-      .max(500, "Tamanho máximo permitido"),
+    .string()
+    .required("O email deve ser preenchido")
+    .max(500, "Tamanho máximo permitido"),
   cpf: yup
     .string()
     .required("A plataforma tem que ser preenchida")
@@ -28,9 +28,7 @@ const validationPost = yup.object().shape({
     .string()
     .required("A senha tem que ser preenchida")
     .max(500, "Tamanho máximo permitido"),
-  complemento: yup
-    .string()
-    .max(500, "Tamanho máximo permitido"),
+  complemento: yup.string().max(500, "Tamanho máximo permitido"),
   cep: yup
     .string()
     .required("O cep tem que ser preenchido")
@@ -38,7 +36,7 @@ const validationPost = yup.object().shape({
 });
 
 const Posts = () => {
-   let navigate = useNavigate();
+  let navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -50,10 +48,10 @@ const Posts = () => {
       .post("http://localhost:8080/clientes/inserir", data)
       .then(() => {
         navigate("/loja");
-        console.log("deu certo");     
+        console.log("deu certo");
       })
       .catch(() => console.error(data));
-// console.log("oi");
+
   return (
     <div>
       <Header />
@@ -95,22 +93,13 @@ const Posts = () => {
                   name="email"
                   {...register("email")}
                 />
-                <p className={styles.errorMessage}>
-                  {errors.email?.message}
-                </p>
+                <p className={styles.errorMessage}>{errors.email?.message}</p>
               </div>
 
               <div className={styles.fields}>
                 <label htmlFor="cpf">CPF:</label>
-                <input
-                  type="text"
-                  id="cpf"
-                  name="cpf"
-                  {...register("cpf")}
-                />
-                <p className={styles.errorMessage}>
-                  {errors.cpf?.message}
-                </p>
+                <input type="text" id="cpf" name="cpf" {...register("cpf")} />
+                <p className={styles.errorMessage}>{errors.cpf?.message}</p>
               </div>
 
               <div className={styles.fields}>
@@ -121,12 +110,10 @@ const Posts = () => {
                   name="senha"
                   {...register("senha")}
                 />
-                <p className={styles.errorMessage}>
-                  {errors.senha?.message}
-                </p>
+                <p className={styles.errorMessage}>{errors.senha?.message}</p>
               </div>
 
-               <div className={styles.fields}>
+              <div className={styles.fields}>
                 <label htmlFor="complemento">Complemento:</label>
                 <input
                   type="text"
@@ -139,19 +126,12 @@ const Posts = () => {
                 </p>
               </div>
 
-               <div className={styles.fields}>
+              <div className={styles.fields}>
                 <label htmlFor="cep">CEP:</label>
-                <input
-                  type="text"
-                  id="cep"
-                  name="cep"
-                  {...register("cep")}
-                />
-                <p className={styles.errorMessage}>
-                  {errors.cep?.message}
-                </p>
+                <input type="text" id="cep" name="cep" {...register("cep")} />
+                <p className={styles.errorMessage}>{errors.cep?.message}</p>
               </div>
-              
+
               <div className={styles.btnPost}>
                 <button type="submit">Enviar</button>
               </div>
@@ -160,9 +140,9 @@ const Posts = () => {
         </div>
       </main>
       <br />
-      <Footer/>
+      <Footer />
     </div>
   );
-}
+};
 
-export default Posts
+export default Posts;

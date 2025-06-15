@@ -1,11 +1,10 @@
-
 .card-custom {
   background-color: #131416;
   color: #fff;
   border-radius: 15px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
   max-height: 60rem;
-  min-height: 30rem; 
+  min-height: 30rem;
   padding: 20px;
 }
 
@@ -13,10 +12,9 @@
   border-radius: 10px;
   max-height: 15rem;
   object-fit: contain;
-  width: 100%; 
+  width: 100%;
 }
 
-/* console.log("oi"); */
 .btn-custom {
   background-color: #8b0000;
   color: white;
@@ -39,11 +37,11 @@ body {
 }
 
 .card span {
-  color: #4CAF50; /* Cor da categoria */
+  color: #4caf50; /* Cor da categoria */
 }
 
 .card .preco {
-  color: #2196F3; /* Cor do preço */
+  color: #2196f3; /* Cor do preço */
 }
 
 .card {

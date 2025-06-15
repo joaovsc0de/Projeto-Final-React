@@ -5,12 +5,11 @@
   background-color: #a20808;
 }
 
-
 .container {
-  flex: 1; 
+  flex: 1;
   display: flex;
-  justify-content: center; 
-  align-items: center;     
+  justify-content: center;
+  align-items: center;
   padding: 40px 20px;
 }
 
@@ -22,9 +21,7 @@
   width: 100%;
   max-width: 500px;
   color: white;
-  
 }
-/* console.log("oi"); */
 .logo {
   display: flex;
   justify-content: center;
@@ -35,11 +32,10 @@
 
 .logoImage {
   display: block;
-  margin: 0 auto; 
+  margin: 0 auto;
   width: 80px;
   height: auto;
 }
-
 
 .title {
   font-size: 24px;

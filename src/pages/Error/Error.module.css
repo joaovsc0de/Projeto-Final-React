@@ -1,9 +1,8 @@
-body{
-     display: flex;
-     justify-content: center;
-     align-items: center;
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-/* console.log("oi"); */
-h1{
-    color: brown;
+h1 {
+  color: brown;
 }
