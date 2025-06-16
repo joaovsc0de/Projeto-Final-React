@@ -44,7 +44,7 @@ const validationPost = yup.object().shape({
 
 const Update = () => {
   let navigate = useNavigate();
-  const { user, loading } = useContext(AuthContext);
+  const { user, loading, updateUserContext  } = useContext(AuthContext);
 
   const {
     register,
@@ -73,15 +73,17 @@ const Update = () => {
       return;
     }
 
+     const { id, idPerfil, ...dataToSend } = data;
     axios
-      .put(`http://localhost:8080/clientes/atualizar/${user.id}`, data) 
-      .then(() => {
-        navigate("/loja");
+      .put(`http://localhost:8080/clientes/atualizar/${user.id}`, dataToSend) 
+      .then((response) => {
         console.log("Atualização realizada com sucesso!");
+        updateUserContext(response.data);
+        navigate("/perfil");         
       })
       .catch((error) => {
         console.error("Erro ao atualizar:", error);
-        console.error("Dados enviados:", data); 
+        console.error("Dados enviados:", dataToSend); 
       });
   };
 

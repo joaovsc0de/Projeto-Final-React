@@ -52,6 +52,12 @@ export const AuthProvider = ({ children }) => {
     
   };
 
+  const updateUserContext = (newUserData) => {
+    setUser(newUserData);
+    localStorage.setItem('user', JSON.stringify(newUserData)); 
+    console.log("Dados do usuário no contexto atualizados:", newUserData);
+  };
+
   useEffect(() => {
     const storedAuthToken = localStorage.getItem('authToken');
     const storedUser = localStorage.getItem('user');
@@ -69,7 +75,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, loading }}>
+    <AuthContext.Provider value={{ user, login, logout, loading, updateUserContext }}>
       {children}
     </AuthContext.Provider>
   );
