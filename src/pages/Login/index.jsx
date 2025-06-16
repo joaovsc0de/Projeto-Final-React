@@ -21,23 +21,14 @@ export default function Login() {
     setError('');
     setLoading(true);
 
-    try {
-
       const success = await login(username, password); 
 
       if (success) {
         navigate("/loja"); 
       } else {
        
-        setError("Falha no login. Credenciais inválidas ou erro ao carregar perfil.");
-      }
-    } catch (err) {
-      
-      console.error("Erro de login no componente:", err);
-      setError(err.message || "Ocorreu um erro inesperado. Tente novamente mais tarde.");
-    } finally {
-      setLoading(false);
-    }
+        setError("Falha no login. Email ou senha errada.");
+      }  
   };
 
   return (

@@ -1,5 +1,6 @@
 import React, { createContext, useState, useEffect } from 'react';
 import axios from 'axios';
+import { Navigate } from 'react-router-dom';
 
 
 export const AuthContext = createContext();
@@ -11,7 +12,6 @@ export const AuthProvider = ({ children }) => {
 
   
   const login = async (email, password) => {
-    try {
       
       const loginResponse = await axios.post('http://localhost:8080/login', {
         username: email, 
@@ -28,7 +28,6 @@ export const AuthProvider = ({ children }) => {
 
       localStorage.setItem('authToken', token); 
 
-      try {
         const userProfileResponse = await axios.get(`http://localhost:8080/clientes/listar/email/${email}`, {
           headers: {
             'Authorization': `Bearer ${token}` 
@@ -42,35 +41,7 @@ export const AuthProvider = ({ children }) => {
           setUser(userData); 
           console.log("Login bem-sucedido e perfil carregado! Usuário:", userData);
           return true; 
-        } else {
-          console.error("Dados do usuário (incluindo ID) não recebidos do endpoint '/clientes/listar/email/'.");
-          
-          localStorage.removeItem('authToken');
-          localStorage.removeItem('user');
-          setUser(null);
-          return false;
-        }
-
-      } catch (profileError) {
-        console.error("Erro ao buscar dados do perfil do usuário após login:", profileError);
-       
-        localStorage.removeItem('authToken');
-        localStorage.removeItem('user');
-        setUser(null);
-       
-        throw new Error("Erro ao carregar dados do perfil. Tente novamente.");
-      }
-
-    } catch (authError) {
-      console.error("Erro na autenticação de login (verifique credenciais ou servidor):", authError);
-      if (authError.response && authError.response.status === 401) {
-        throw new Error("Credenciais inválidas. Verifique seu nome de usuário e senha.");
-      } else if (authError.request) {
-        throw new Error("Não foi possível conectar ao servidor. Verifique sua conexão de rede ou o status da API.");
-      } else {
-        throw new Error("Erro inesperado durante o login.");
-      }
-    }
+              } 
   };
 
   const logout = () => {
@@ -78,6 +49,7 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem('authToken');
     localStorage.removeItem('user');
     console.log("Usuário deslogado.");
+    
   };
 
   useEffect(() => {
