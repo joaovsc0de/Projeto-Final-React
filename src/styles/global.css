@@ -1,41 +1,66 @@
+/* src/index.css (ou o nome do seu arquivo CSS global) */
+
+/* Variáveis CSS para o MODO CLARO (padrão) */
 :root {
-  
+  /* Cores gerais do corpo */
   --body-background: #f2f2f2;
   --body-text-color: #022840;
   --link-color: #025373;
 
- 
+  /* Cores específicas do HEADER no MODO CLARO */
   --header-background-color: #ffffff;
   --header-text-color: rgb(180, 3, 3);
   --header-link-hover-color: #ffbb00;
 
- 
-  --footer-background-color: #f0f0f0; 
-  --footer-text-color: #022840;     
-  --footer-link-color: #e00000;    
-  --footer-link-hover-color: #ff3333; 
+  /* Cores específicas do FOOTER (componente Footer antigo, se ainda usa) no MODO CLARO */
+  --footer-background-color: #f0f0f0;
+  --footer-text-color: #022840;
+  --footer-link-color: #e00000;
+  --footer-link-hover-color: #ff3333;
+
+  /* --- NOVAS: Cores específicas do FOOTER MAIN no MODO CLARO --- */
+  --footer-main-background-color: #f0f0f0; /* Fundo claro para o FooterMain */
+  --footer-main-text-color: #333; /* Cor do texto geral do FooterMain no modo claro */
+  --footer-main-heading-color: #e00000; /* Cor dos títulos (h3) no FooterMain */
+  --footer-main-link-color: #666; /* Cor dos links no FooterMain */
+  --footer-main-link-hover-color: #ff1a1a; /* Cor do hover dos links no FooterMain */
+  --footer-main-social-icon-color: #e00000; /* Cor dos ícones sociais */
+  --footer-main-social-icon-hover-color: #ff3333; /* Cor do hover dos ícones sociais */
+  --footer-main-copy-color: #777; /* Cor do texto de copyright */
 }
 
-
+/* Variáveis CSS para o MODO ESCURO (quando data-theme="dark" está no body) */
 body[data-theme="dark"] {
-
+  /* Cores gerais do corpo */
   --body-background: #022840;
   --body-text-color: #f2f2f2;
   --link-color: #037f8c;
 
-  
+  /* Cores específicas do HEADER no MODO ESCURO */
   --header-background-color: #121212;
   --header-text-color: #ff0000;
   --header-link-hover-color: #ffbb00;
 
- 
-  --footer-background-color: #111; 
-  --footer-text-color: #ffffff;    
-  --footer-link-color: #e00000;   
-  --footer-link-hover-color: #ff3333; 
+  /* Cores específicas do FOOTER (componente Footer antigo, se ainda usa) no MODO ESCURO */
+  --footer-background-color: #111;
+  --footer-text-color: #ffffff;
+  --footer-link-color: #e00000;
+  --footer-link-hover-color: #ff3333;
+
+  /* --- NOVAS: Cores específicas do FOOTER MAIN no MODO ESCURO --- */
+  --footer-main-background-color: #111; /* Fundo escuro para o FooterMain (como o seu original) */
+  --footer-main-text-color: #eee; /* Cor do texto geral do FooterMain no modo escuro */
+  --footer-main-heading-color: #e00000; /* Cor dos títulos (h3) no FooterMain */
+  --footer-main-link-color: #ccc; /* Cor dos links no FooterMain */
+  --footer-main-link-hover-color: #ff1a1a; /* Cor do hover dos links no FooterMain */
+  --footer-main-social-icon-color: #e00000; /* Cor dos ícones sociais */
+  --footer-main-social-icon-hover-color: #ff3333; /* Cor do hover dos ícones sociais */
+  --footer-main-copy-color: #777; /* Cor do texto de copyright */
+
+  --header: var(--header-background-color); /* Para compatibilidade com seu código anterior, se --header ainda for usado */
 }
 
-
+/* Estilos globais (aplicados a todos os elementos) */
 * {
   transition: all 0.3s ease-in-out;
   margin: 0;
@@ -43,7 +68,7 @@ body[data-theme="dark"] {
   box-sizing: border-box;
 }
 
-
+/* Estilos para o body (aplicará as variáveis de tema) */
 body {
   margin: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;

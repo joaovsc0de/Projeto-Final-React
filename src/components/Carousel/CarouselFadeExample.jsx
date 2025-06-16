@@ -37,7 +37,7 @@ function CarouselFadeExample() {
             eletrônico de survival horror e tiro em terceira pessoa desenvolvido
             e publicado pela Capcom, lançado originalmente para o GameCube em
             2005. É o sexto jogo principal da franquia Resident Evil. A história
-            segue o agente especial Leon S.
+            segue o agente especial Leon S. Kennedy.
           </p>
         </Carousel.Caption>
       </Carousel.Item>
@@ -51,10 +51,12 @@ function CarouselFadeExample() {
         <Carousel.Caption>
           <h3 className={styles.tituloimagens}>Elden Ring</h3>
           <p className={styles.paragrafo}>
-            Elden Ring é um jogo eletrônico de RPG de ação em terceira pessoa,
-            desenvolvido pela FromSoftware e publicado pela Bandai Namco
-            Entertainment. O jogo é um projeto colaborativo entre o diretor
-            Hidetaka Miyazaki e o romancista de fantasia George R. R. Martin.
+            Elden Ring é um jogo eletrônico de RPG de ação desenvolvido 
+          pela FromSoftware e publicado pela Bandai Namco Entertainment, 
+          lançado mundialmente em fevereiro de 2022 para PlayStation 4, PlayStation 5, 
+          Xbox One, Xbox Series X/S e Microsoft Windows. Criado em colaboração com o autor 
+          de fantasia George R. R. Martin, é ambientado nas Terras Intermédias e segue a 
+          jornada de um Maculado.
           </p>
         </Carousel.Caption>
       </Carousel.Item>

@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react'; 
 import styles from './Login.module.css';
 import { FaUser, FaLock } from 'react-icons/fa';
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthContext' 
 
 export default function Login() {
   const [username, setUsername] = useState('');
@@ -13,8 +13,7 @@ export default function Login() {
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
-
-  const API_BASE_URL = "http://localhost:8080";
+  const { login } = useContext(AuthContext); 
 
   const logar = async (event) => {
     event.preventDefault();
@@ -23,46 +22,19 @@ export default function Login() {
     setLoading(true);
 
     try {
-      const response = await axios.post(`${API_BASE_URL}/login`, {
-        username: username,
-        password: password,
-      });
 
-      console.log('Dados completos da resposta da API:', response); 
-      console.log('Conteúdo de response.data:', response.data); 
-      console.log('Conteúdo de response.headers:', response.headers); 
+      const success = await login(username, password); 
 
-      
-      let token = response.headers.authorization;
-
-      
-      if (token && token.startsWith('Bearer ')) {
-        token = token.substring(7); 
-      }
-
-      if (token) {
-        localStorage.setItem('authToken', token); 
-        console.log("Login bem-sucedido! Token:", token);
-        navigate("/loja");
+      if (success) {
+        navigate("/loja"); 
       } else {
-        setError("Token não recebido no cabeçalho 'Authorization' da API.");
-        console.warn("Resposta da API (sem token esperado no cabeçalho):", response.headers);
+       
+        setError("Falha no login. Credenciais inválidas ou erro ao carregar perfil.");
       }
     } catch (err) {
-      console.error("Erro de login:", err);
-      if (err.response) {
-        if (err.response.status === 401) {
-          setError("Credenciais inválidas. Verifique seu nome de usuário e senha.");
-        } else if (err.response.data && err.response.data.message) {
-          setError(err.response.data.message);
-        } else {
-          setError("Erro no servidor. Tente novamente mais tarde.");
-        }
-      } else if (err.request) {
-        setError("Não foi possível conectar ao servidor. Verifique sua conexão de rede ou o status da API.");
-      } else {
-        setError("Erro ao processar a requisição de login.");
-      }
+      
+      console.error("Erro de login no componente:", err);
+      setError(err.message || "Ocorreu um erro inesperado. Tente novamente mais tarde.");
     } finally {
       setLoading(false);
     }
@@ -85,7 +57,7 @@ export default function Login() {
               <FaUser className={styles.icon} />
               <input
                 type="text"
-                placeholder="Digite seu nome"
+                placeholder="Digite seu email" 
                 id='username'
                 name='username'
                 className={styles.input}
@@ -116,11 +88,11 @@ export default function Login() {
             <button type="button" className={styles.registerButton} onClick={() => window.location.href = '/cadastro'}>
               CADASTRAR
             </button>
-            
+           
           </form>
         </div>
       </div>
-      <Footer />
+       <Footer />
     </div>
   );
 }
