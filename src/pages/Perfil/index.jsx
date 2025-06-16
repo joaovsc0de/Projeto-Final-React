@@ -1,47 +1,49 @@
-import React, { useEffect, useState } from "react"; // Importe useState
+import React, { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom"; // Importe useParams
 import Header from "../../components/Header";
 import axios from "axios";
-import styles from './Perfil.module.css'; // Mantenha a importação do CSS Module
+import styles from './Perfil.module.css';
+import Footer from "../../components/Footer";
 
 const Perfil = () => {
-  const [cliente, setCliente] = useState(null); // Estado para armazenar os dados do cliente
-  const [loading, setLoading] = useState(true); // Estado para indicar carregamento
-  const [error, setError] = useState(null);   // Estado para erros
+  const { id } = useParams(); // Obtém o 'id' da URL
+  const [cliente, setCliente] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    // Função para buscar os dados do cliente
     const fetchClienteData = async () => {
-      try {
-        setLoading(true); // Inicia o carregamento
-        setError(null);   // Limpa erros anteriores
-        // NOTA: 'clientes/listar' geralmente retorna uma lista.
-        // Se você quer um cliente específico (o que está logado),
-        // precisaria de um endpoint como '/clientes/meu-perfil' ou passar um ID.
-        // Por enquanto, vou assumir que 'listar' retorna apenas um cliente
-        // ou que vamos pegar o primeiro da lista para simplificar.
-        const response = await axios.get("http://localhost:8080/clientes/listar");
-        
-        if (response.data && response.data.length > 0) {
-          setCliente(response.data[0]); // Pega o primeiro cliente da lista
-        } else {
-          setError("Nenhum cliente encontrado.");
-        }
-      } catch (err) {
-        console.error("Erro ao buscar perfil: ", err);
-        setError("Não foi possível carregar os dados do perfil. Tente novamente mais tarde.");
-      } finally {
-        setLoading(false); // Finaliza o carregamento
+      setLoading(true);
+      setError(null);
+
+      // Verifica se o ID está presente antes de fazer a requisição
+      // if (!id) {
+      //   setError("ID do cliente não fornecido na URL.");
+      //   setLoading(false);
+      //   return;
+      // }
+
+      const response = await axios.get(`http://localhost:8080/clientes/listar/3`);
+
+      // Sua resposta parece ser um objeto direto, não um array.
+      // Se a resposta for um array, mantenha response.data[0].
+      // Se a resposta for um objeto direto, use response.data.
+      if (response.data) {
+        setCliente(response.data); // Define o cliente diretamente
+      } else {
+        setError("Nenhum cliente encontrado com este ID.");
       }
+      setLoading(false);
     };
 
     fetchClienteData();
-  }, []); // O array vazio [] garante que o useEffect rode apenas uma vez ao montar
+  }, [id]); // Adicione 'id' como dependência para que a requisição seja feita quando o ID mudar
 
   return (
     <div>
       <Header />
-      <div className={styles.container}> {/* Reutiliza o conceito de container */}
-        <main className={styles.perfilCard}> {/* Um card similar ao loginBox */}
+      <div className={styles.container}>
+        <main className={styles.perfilCard}>
           <h1 className={styles.title}>Meu Perfil</h1>
 
           {loading && <p>Carregando dados do perfil...</p>}
@@ -49,33 +51,36 @@ const Perfil = () => {
 
           {cliente && (
             <div className={styles.clienteInfo}>
+              <div className={styles.clienteAvatar}>
+                <img src={cliente.url} alt="Não foi possivel carregar avatar" className={styles.avatarImage} />
+              </div>
               <div className={styles.infoGroup}>
                 <span className={styles.label}>Nome:</span>
-                <span className={styles.value}>{cliente.nome}</span> {/* Supondo que a API retorna 'nome' */}
+                <span className={styles.value}>{cliente.nome}</span>
+              </div>
+              <div className={styles.infoGroup}>
+                <span className={styles.label}>Telefone:</span>
+                <span className={styles.value}>{cliente.telefone}</span>
               </div>
               <div className={styles.infoGroup}>
                 <span className={styles.label}>Email:</span>
-                <span className={styles.value}>{cliente.email}</span> {/* Supondo que a API retorna 'email' */}
-              </div>
-              <div className={styles.infoGroup}>
-                <span className={styles.label}>Endereço:</span>
-                <span className={styles.value}>
-                  {cliente.endereco?.rua}, {cliente.endereco?.numero} - {cliente.endereco?.bairro}, {cliente.endereco?.cidade} - {cliente.endereco?.estado} {/* Exemplo complexo para endereço */}
-                </span>
-                {/* Ajuste os campos do endereço conforme o JSON real da sua API.
-                    Use `?.` (optional chaining) para evitar erros se a propriedade for null/undefined. */}
-              </div>
-              {/* Adicione outros campos que você queira exibir */}
+                <span className={styles.value}>{cliente.email}</span>
+              </div>          
             </div>
           )}
 
-          {/* Você pode adicionar botões de editar perfil aqui, se quiser */}
           {cliente && (
-              <button className={styles.editButton}>Editar Perfil</button>
+             <Link to={`/update/${cliente.id}`}>
+            <button className={styles.editButton}>
+              Editar Perfil
+            </button>
+            </Link>
           )}
-
+        
         </main>
+        
       </div>
+      <Footer />
     </div>
   );
 };

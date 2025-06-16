@@ -33,6 +33,9 @@ const validationPost = yup.object().shape({
     .string()
     .required("O cep tem que ser preenchido")
     .max(500, "Tamanho máximo permitido"),
+    url: yup
+        .string()
+        .max(500, "Tamanho máximo permitido"),
 });
 
 const Posts = () => {
@@ -128,10 +131,30 @@ const Posts = () => {
 
               <div className={styles.fields}>
                 <label htmlFor="cep">CEP:</label>
-                <input type="text" id="cep" name="cep" {...register("cep")} />
-                <p className={styles.errorMessage}>{errors.cep?.message}</p>
+                <input
+                  type="text"
+                  id="cep"
+                  name="cep"
+                  {...register("cep")}
+                />
+                <p className={styles.errorMessage}>
+                  {errors.cep?.message}
+                </p>
               </div>
 
+               <div className={styles.fields}>
+                              <label htmlFor="url">Url:</label>
+                              <input
+                                type="text"
+                                id="url"
+                                name="url"
+                                {...register("url")}
+                              />
+                              <p className={styles.errorMessage}>
+                                {errors.url?.message}
+                              </p>
+                            </div>
+              
               <div className={styles.btnPost}>
                 <button type="submit">Enviar</button>
               </div>

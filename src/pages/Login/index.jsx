@@ -28,21 +28,20 @@ export default function Login() {
         password: password,
       });
 
-      console.log('Dados completos da resposta da API:', response); // Mantenha para depuração se quiser
-      console.log('Conteúdo de response.data:', response.data); // Mantenha para depuração se quiser
-      console.log('Conteúdo de response.headers:', response.headers); // Mantenha para ver os cabeçalhos
+      console.log('Dados completos da resposta da API:', response); 
+      console.log('Conteúdo de response.data:', response.data); 
+      console.log('Conteúdo de response.headers:', response.headers); 
 
-      // --- CORREÇÃO AQUI ---
-      // O token está no cabeçalho 'authorization'
+      
       let token = response.headers.authorization;
 
-      // O token vem no formato "Bearer SEU_TOKEN". Precisamos remover "Bearer "
+      
       if (token && token.startsWith('Bearer ')) {
-        token = token.substring(7); // Remove "Bearer " (7 caracteres)
+        token = token.substring(7); 
       }
 
       if (token) {
-        localStorage.setItem('authToken', token); // Armazena o token limpo
+        localStorage.setItem('authToken', token); 
         console.log("Login bem-sucedido! Token:", token);
         navigate("/loja");
       } else {
@@ -117,10 +116,11 @@ export default function Login() {
             <button type="button" className={styles.registerButton} onClick={() => window.location.href = '/cadastro'}>
               CADASTRAR
             </button>
-            <Footer />
+            
           </form>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
