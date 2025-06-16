@@ -1,16 +1,16 @@
 import { BrowserRouter } from "react-router-dom";
 import AppRouter from "./routes/AppRouter";
-import DarkMode from "./components/DarkMode/DarkMode";
 import "../src/styles/global.css";
+import ThemeProvider from "./contexts/ThemeContext";
 
 function App() {
   return (
     <>
-   
       <BrowserRouter>
-        <AppRouter />
+        <ThemeProvider>
+          <AppRouter />
+        </ThemeProvider>
       </BrowserRouter>
-      
     </>
   );
 }

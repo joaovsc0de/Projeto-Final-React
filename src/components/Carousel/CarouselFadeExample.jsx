@@ -10,10 +10,12 @@ function CarouselFadeExample() {
         <img
           className={styles.carousel_img}
           src="https://xboxwire.thesourcemediaassets.com/sites/8/2025/04/Hero1_edited-f589f131b7c0dbe784a3-1900x1080.jpg"
-          alt="Primeira foto do slide"
+          alt="A primeira foto do slide é sobre The Elder Scrolls IV: Oblivion"
         />
         <Carousel.Caption>
-          <h3>The Elder Scrolls IV: Oblivion</h3>
+          <h3 className={styles.tituloimagens}>
+            The Elder Scrolls IV: Oblivion
+          </h3>
           <p className={styles.paragrafo}>
             The Elder Scrolls IV: Oblivion é um jogo eletrônico de RPG de ação
             desenvolvido pela Bethesda Game Studios para Microsoft Windows, Xbox
@@ -25,17 +27,17 @@ function CarouselFadeExample() {
       <Carousel.Item>
         <img
           className={styles.carousel_img}
-          src="https://images-ext-1.discordapp.net/external/13Ywq2ezYMDcGp9EmNH2jMD1EdrX-oMePaSOIqMQMHY/https/4kwallpapers.com/images/wallpapers/resident-evil-4-3840x2160-14534.jpeg?format=webp&width=1536&height=864"
-          alt="Segunda foto do slide"
+          src="https://w.wallhaven.cc/full/e7/wallhaven-e7gj78.png"
+          alt="A segunda foto do slide é sobre Resident - Evil 4"
         />
         <Carousel.Caption>
-          <h3>Resident Evil 4</h3>
+          <h3 className={styles.tituloimagens}>Resident Evil 4</h3>
           <p className={styles.paragrafo}>
             Resident Evil 4, conhecido no Japão como Biohazard 4, é um jogo
             eletrônico de survival horror e tiro em terceira pessoa desenvolvido
             e publicado pela Capcom, lançado originalmente para o GameCube em
             2005. É o sexto jogo principal da franquia Resident Evil. A história
-            segue o agente especial Leon S
+            segue o agente especial Leon S.
           </p>
         </Carousel.Caption>
       </Carousel.Item>
@@ -44,16 +46,15 @@ function CarouselFadeExample() {
         <img
           className={styles.carousel_img}
           src="https://i.redd.it/rzd93vlpxn471.jpg"
-          alt="Terceira foto do slide"
+          alt="A terceira foto do slide é sobre Elden Ring"
         />
         <Carousel.Caption>
-          <h3>Resident Evil 4</h3>
+          <h3 className={styles.tituloimagens}>Elden Ring</h3>
           <p className={styles.paragrafo}>
-            Resident Evil 4, conhecido no Japão como Biohazard 4, é um jogo
-            eletrônico de survival horror e tiro em terceira pessoa desenvolvido
-            e publicado pela Capcom, lançado originalmente para o GameCube em
-            2005. É o sexto jogo principal da franquia Resident Evil. A história
-            segue o agente especial Leon S
+            Elden Ring é um jogo eletrônico de RPG de ação em terceira pessoa,
+            desenvolvido pela FromSoftware e publicado pela Bandai Namco
+            Entertainment. O jogo é um projeto colaborativo entre o diretor
+            Hidetaka Miyazaki e o romancista de fantasia George R. R. Martin.
           </p>
         </Carousel.Caption>
       </Carousel.Item>
@@ -62,10 +63,10 @@ function CarouselFadeExample() {
         <img
           className={styles.carousel_img}
           src="https://w.wallhaven.cc/full/ym/wallhaven-ymgl3x.jpg"
-          alt="Quarta foto imagem do slide"
+          alt="A quarta foto do slide é sobre GTA V "
         />
         <Carousel.Caption>
-          <h3>Grand Theft Auto IV</h3>
+          <h3 className={styles.h3}>Grand Theft Auto V</h3>
           <p className={styles.paragrafo}>
             Grand Theft Auto V é um jogo eletrônico de ação e aventura
             desenvolvido pela Rockstar North e publicado pela Rockstar Games.
@@ -77,10 +78,10 @@ function CarouselFadeExample() {
         <img
           className={styles.carousel_img}
           src="https://w.wallhaven.cc/full/l8/wallhaven-l8963q.jpg"
-          alt="Quinta foto do slide"
+          alt="A quinta foto do slide é sobre TEKKEN 8 "
         />
         <Carousel.Caption>
-          <h3>Tekken 8</h3>
+          <h3 className={styles.tituloimagens}>Tekken 8</h3>
           <p className={styles.paragrafo}>
             Tekken 8 é um jogo eletrônico de luta desenvolvido pela Bandai Namco
             Studios e Arika. Bandai Namco Entertainment publicou o jogo para

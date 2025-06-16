@@ -7,8 +7,7 @@
 } */
 
 body {
-    display: block;
-    justify-content: center;
-    /* align-items: center; */
+  display: block;
+  justify-content: center;
+  align-items: center;
 }
-/* console.log("oi"); */
