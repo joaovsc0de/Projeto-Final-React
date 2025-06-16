@@ -1,11 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Recipe.module.css'; 
 import axios from "axios";
+import { AuthContext } from "../../contexts/AuthContext";
+import { Link } from "react-router-dom";
 
 const RecipeCard = ({ nome, valor, genero, url, id, deletePost }) => {
+  const { user } = useContext(AuthContext);
   const handleComprar = () => {
-    alert(`Comprar: ${nome}`);
+    alert("Faça login para comprar!");
   };
   return (
     <div className="col-md-4 mb-4" style={{ padding: "1rem" }}>
@@ -36,16 +39,20 @@ const RecipeCard = ({ nome, valor, genero, url, id, deletePost }) => {
           <p style={{ margin: "5px 0" }}>Preço: R$ {valor}</p>
         </div>
         <div className="d-flex justify-content-center mt-3 mb-2">
+          <Link to="/login">
           <button className="btn btn-success me-2" onClick={handleComprar}>
             Comprar
           </button>
+          </Link>
 
-          <button className="btn btn-danger" onClick={() =>{
+        
+         {user && <button className="btn btn-danger" onClick={() =>{
             console.log(nome);
             deletePost(parseInt(id))}
           } >
             Excluir
-          </button>
+          </button>}
+          
         </div>
       </div>
     </div>

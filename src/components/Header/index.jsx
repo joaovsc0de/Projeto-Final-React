@@ -2,8 +2,15 @@ import { Link } from "react-router-dom";
 import img from '../../assets/pngegg.png';
 import styles from "./Header.module.css";
 import DarkMode from "../DarkMode/DarkMode";
+import { AuthContext } from '../../contexts/AuthContext'
+import { useContext } from "react";
 
 export default function Header() {
+ const { logout } = useContext(AuthContext); 
+ const {user} = useContext(AuthContext)
+    const handleLogout = (e) => {
+        logout();
+    }
    
     return (
         <header className={styles.header}> 
@@ -16,26 +23,31 @@ export default function Header() {
 
       <div className={styles["menu"]}>
         <nav>
+            {/* {user && <h1>oi {user.nome}</h1>} */}
           <ul>
             <li>
               <Link to="/">Home</Link>
             </li>
 
-                        <li>
+                       {!user && <li>
                             <Link to="/login">Login</Link>
-                        </li>
-                        <li>
+                        </li>}
+                        {user && <li>
                             <Link to="/perfil">Perfil</Link>
-                        </li>
+                        </li>}
                         <li>
                             <Link to="/loja">Produtos</Link>
                         </li>
-                        <li>
+                        {user && <li>
                             <Link to="/carrinho">Carrinho</Link>
-                        </li>
-                        <li>
+                        </li>}
+                        {user &&<li>
                             <Link to="/posts">Inserir</Link>
-                        </li>         
+                        </li>}
+                        {user && <li>
+                            <Link to="/login" onClick={handleLogout}>Sair</Link>
+                        </li>} 
+                          
                         <DarkMode />          
                     </ul>
                 </nav>
