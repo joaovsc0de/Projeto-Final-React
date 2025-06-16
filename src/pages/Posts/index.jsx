@@ -112,15 +112,14 @@ const Posts = () => {
                 <p className={styles.errorMessage}>{errors.url?.message}</p>
               </div>
 
-              <div className={styles.btnPost}>
-                <button type="submit">ENVIAR</button>
-              </div>
-            </form>
-          </div>
+        <div className={styles.btnPost}>
+          <button type="submit">ENVIAR</button>
         </div>
-      </div>
-
-      <Footer />
+      </form>
+    </div>
+  </div>
+</div>
+      <Footer/>
     </div>
   );
 };

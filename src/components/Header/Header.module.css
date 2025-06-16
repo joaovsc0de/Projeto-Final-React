@@ -1,21 +1,28 @@
-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #fff;
-  color: rgb(180, 3, 3);
-  padding: 10px 20px;
-  height: 100px;
+
+.header { 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    height: 100px;
+
+    background-color: var(--header-background-color);
+    color: var(--header-text-color);
+
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
+
 h2 {
-  font-family: Georgia, "Times New Roman", Times, serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
+
 .logo-container {
   display: flex;
   align-items: center;
   gap: 10px;
 }
+
 
 .logo-container img {
   height: 60px;
@@ -37,25 +44,12 @@ h2 {
 }
 
 .menu a {
-  color: rgb(180, 3, 3);
-  font-size: 20px;
-  text-decoration: none;
-  font-family: Georgia, "Times New Roman", Times, serif;
+    color: inherit;
+    font-size: 20px;
+    text-decoration: none;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .menu a:hover {
-  color: #ffbb00;
-}
-
-@media (min-width: 992px) {
-  header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #121212;
-    color: #ff0000;
-    padding: 10px 20px;
-    height: 100px;
-  }
+    color: var(--header-link-hover-color);
 }

@@ -33,7 +33,7 @@ function CarouselFadeExample() {
         <Carousel.Caption>
           <h3 className={styles.tituloimagens}>Resident Evil 4</h3>
           <p className={styles.paragrafo}>
-            Resident Evil 4, conhecido no Japão como Biohazard 4, é um jogo
+          Resident Evil 4, conhecido no Japão como Biohazard 4, é um jogo
             eletrônico de survival horror e tiro em terceira pessoa desenvolvido
             e publicado pela Capcom, lançado originalmente para o GameCube em
             2005. É o sexto jogo principal da franquia Resident Evil. A história

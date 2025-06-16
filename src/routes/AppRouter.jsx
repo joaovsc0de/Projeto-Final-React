@@ -7,6 +7,9 @@ import Loja from '../pages/Loja'
 import Posts from '../pages/Posts'
 import Cadastro from '../pages/Cadastro'
 import Perfil from '../pages/Perfil'
+import Carrinho from '../pages/Carrinho'
+import { element } from 'prop-types'
+import Update from '../pages/Update'
 
 const AppRouter = () => {
   return (
@@ -17,7 +20,8 @@ const AppRouter = () => {
       <Route path={'/loja'} element={<Loja/>}></Route> 
       <Route path={'/posts'} element={<Posts/>}></Route>
       <Route path={'/perfil'} element={<Perfil/>}></Route>
-      <Route path={'/update'}></Route>
+      <Route path={'/carrinho'} element={<Carrinho/>}></Route>
+      <Route path={'/update/:id'} element={<Update/>}></Route>
       <Route path={'/pedido'}></Route>
       <Route path={'/more'} element={<More/>}></Route>
       <Route path={'*'} element={<Error/>}></Route>
