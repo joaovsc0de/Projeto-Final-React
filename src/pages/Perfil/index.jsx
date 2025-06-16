@@ -1,43 +1,50 @@
-import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom"; // Importe useParams
+import React, { useEffect, useState, useContext } from "react"; 
+import { Link, useNavigate } from "react-router-dom"; 
 import Header from "../../components/Header";
-import axios from "axios";
+import axios from "axios"; 
 import styles from './Perfil.module.css';
 import Footer from "../../components/Footer";
+import { AuthContext } from '../../contexts/AuthContext'; 
 
 const Perfil = () => {
-  const { id } = useParams(); // Obtém o 'id' da URL
-  const [cliente, setCliente] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const { user, loading } = useContext(AuthContext); 
+  const navigate = useNavigate(); 
 
   useEffect(() => {
-    const fetchClienteData = async () => {
-      setLoading(true);
-      setError(null);
+    if (!loading && !user) {
+      console.log("Nenhum usuário logado. Redirecionando para a página de login.");
+      navigate('/login');
+    }
+  }, [loading, user, navigate]);
 
-      // Verifica se o ID está presente antes de fazer a requisição
-      // if (!id) {
-      //   setError("ID do cliente não fornecido na URL.");
-      //   setLoading(false);
-      //   return;
-      // }
+  
+  if (loading) {
+    return (
+      <div>
+        <Header />
+        <div className={styles.container}>
+          <main className={styles.perfilCard}>
+            <p>Carregando informações do perfil...</p>
+          </main>
+        </div>
+        <Footer />
+      </div>
+    );
+  }
 
-      const response = await axios.get(`http://localhost:8080/clientes/listar/3`);
-
-      // Sua resposta parece ser um objeto direto, não um array.
-      // Se a resposta for um array, mantenha response.data[0].
-      // Se a resposta for um objeto direto, use response.data.
-      if (response.data) {
-        setCliente(response.data); // Define o cliente diretamente
-      } else {
-        setError("Nenhum cliente encontrado com este ID.");
-      }
-      setLoading(false);
-    };
-
-    fetchClienteData();
-  }, [id]); // Adicione 'id' como dependência para que a requisição seja feita quando o ID mudar
+  if (!user) {
+    return (
+      <div>
+        <Header />
+        <div className={styles.container}>
+          <main className={styles.perfilCard}>
+            <p className={styles.errorMessage}>Você precisa estar logado para ver esta página.</p>
+          </main>
+        </div>
+        <Footer />
+      </div>
+    );
+  }
 
   return (
     <div>
@@ -46,39 +53,45 @@ const Perfil = () => {
         <main className={styles.perfilCard}>
           <h1 className={styles.title}>Meu Perfil</h1>
 
-          {loading && <p>Carregando dados do perfil...</p>}
-          {error && <p className={styles.errorMessage}>{error}</p>}
-
-          {cliente && (
-            <div className={styles.clienteInfo}>
-              <div className={styles.clienteAvatar}>
-                <img src={cliente.url} alt="Não foi possivel carregar avatar" className={styles.avatarImage} />
-              </div>
-              <div className={styles.infoGroup}>
-                <span className={styles.label}>Nome:</span>
-                <span className={styles.value}>{cliente.nome}</span>
-              </div>
-              <div className={styles.infoGroup}>
-                <span className={styles.label}>Telefone:</span>
-                <span className={styles.value}>{cliente.telefone}</span>
-              </div>
-              <div className={styles.infoGroup}>
-                <span className={styles.label}>Email:</span>
-                <span className={styles.value}>{cliente.email}</span>
-              </div>          
+          <div className={styles.clienteInfo}>
+            <div className={styles.clienteAvatar}>
+              <img src={user.url} alt="Não foi possível carregar avatar" className={styles.avatarImage} />
             </div>
-          )}
+            <div className={styles.infoGroup}>
+              <span className={styles.label}>Nome:</span>
+              <span className={styles.value}>{user.nome}</span>
+            </div>
+            <div className={styles.infoGroup}>
+              <span className={styles.label}>Telefone:</span>
+              <span className={styles.value}>{user.telefone}</span>
+            </div>
+            <div className={styles.infoGroup}>
+              <span className={styles.label}>Email:</span>
+              <span className={styles.value}>{user.email}</span>
+            </div>
+            {/* <div className={styles.infoGroup}>
+              <span className={styles.label}>CPF:</span>
+              <span className={styles.value}>{user.cpf}</span>
+            </div>
+            <div className={styles.infoGroup}>
+              <span className={styles.label}>CEP:</span>
+              <span className={styles.value}>{user.cep}</span>
+            </div> */}
+            {user.complemento && ( 
+              <div className={styles.infoGroup}>
+                <span className={styles.label}>Complemento:</span>
+                <span className={styles.value}>{user.complemento}</span>
+              </div>
+            )}
+          </div>
 
-          {cliente && (
-             <Link to={`/update/${cliente.id}`}>
+          <Link to={`/update/${user.id}`}>
             <button className={styles.editButton}>
               Editar Perfil
             </button>
-            </Link>
-          )}
-        
+          </Link>
+
         </main>
-        
       </div>
       <Footer />
     </div>
