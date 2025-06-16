@@ -38,10 +38,10 @@ export default function Header() {
                         <li>
                             <Link to="/loja">Produtos</Link>
                         </li>
-                        {user && <li>
+                        {user && user.Perfil==2 && <li>
                             <Link to="/carrinho">Carrinho</Link>
                         </li>}
-                        {user &&<li>
+                        {user && user.idPerfil!==2 &&<li>
                             <Link to="/posts">Inserir</Link>
                         </li>}
                         {user && <li>
