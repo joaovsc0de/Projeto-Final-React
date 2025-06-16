@@ -6,7 +6,8 @@ import * as yup from "yup";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Footer from "../../components/Footer";
-import { useEffect } from "react";
+import { useEffect, useContext } from "react"; 
+import { AuthContext } from '../../contexts/AuthContext' 
 
 const validationPost = yup.object().shape({
   nome: yup
@@ -18,12 +19,12 @@ const validationPost = yup.object().shape({
     .required("O telefone tem que ser preenchido")
     .max(150, "Tamanho máximo permitido"),
   email: yup
-      .string()
-      .required("O email deve ser preenchido")
-      .max(500, "Tamanho máximo permitido"),
+    .string()
+    .required("O email deve ser preenchido")
+    .max(500, "Tamanho máximo permitido"),
   cpf: yup
     .string()
-    .required("A plataforma tem que ser preenchida")
+    .required("O CPF tem que ser preenchido")
     .max(500, "Tamanho máximo permitido"),
   senha: yup
     .string()
@@ -36,42 +37,70 @@ const validationPost = yup.object().shape({
     .string()
     .required("O cep tem que ser preenchido")
     .max(500, "Tamanho máximo permitido"),
-    url: yup
+  url: yup
     .string()
     .max(500, "Tamanho máximo permitido"),
 });
 
 const Update = () => {
   let navigate = useNavigate();
+  const { user, loading, updateUserContext  } = useContext(AuthContext);
+
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset, 
   } = useForm({ resolver: yupResolver(validationPost) });
-useEffect(() => {
+
+  useEffect(() => {
+    if (!loading && user && user.id) {
+      axios
+        .get(`http://localhost:8080/clientes/listar/${user.id}`) 
+        .then((response) => {
+          reset(response.data); 
+        })
+        .catch((error) => {
+          console.error("Erro ao carregar dados do cliente:", error);
+        });
+    }
+  }, [user, loading, reset]);
+
+  const addPost = (data) => {
+    if (!user || !user.id) {
+      console.error("Usuário não logado ou ID indisponível. Redirecionando para o login.");
+      navigate('/login');
+      return;
+    }
+
+     const { id, idPerfil, ...dataToSend } = data;
     axios
-      .get(`http://localhost:8080/clientes/listar/3`)
+      .put(`http://localhost:8080/clientes/atualizar/${user.id}`, dataToSend) 
       .then((response) => {
-        reset(response.data);
+        console.log("Atualização realizada com sucesso!");
+        updateUserContext(response.data);
+        navigate("/perfil");         
       })
-      .catch(() => {
-        console.error("Deu problema na requisição");
+      .catch((error) => {
+        console.error("Erro ao atualizar:", error);
+        console.error("Dados enviados:", dataToSend); 
       });
-  }, []);
-  const addPost = (data) =>
-    axios
-      .put("http://localhost:8080/clientes/atualizar/3", data)
-      .then(() => {
-        navigate("/loja");
-        console.log("deu certo");     
-      })
-      .catch(() => console.error(data));
+  };
+
+  if (loading) {
+    return <div>Carregando informações do usuário...</div>; 
+  }
+
+  if (!user) {
+    return <div>Você precisa estar logado para acessar esta página.</div>; 
+  }
+
   return (
     <div>
       <Header />
       <main>
         <div className={styles.cardPost}>
-          <h1>Atualizar</h1>
+          <h1>Atualizar Perfil</h1>
           <hr />
           <div className={styles.cardBodyPost}>
             <form onSubmit={handleSubmit(addPost)}>
@@ -138,7 +167,7 @@ useEffect(() => {
                 </p>
               </div>
 
-               <div className={styles.fields}>
+                <div className={styles.fields}>
                 <label htmlFor="complemento">Complemento:</label>
                 <input
                   type="text"
@@ -151,7 +180,7 @@ useEffect(() => {
                 </p>
               </div>
 
-               <div className={styles.fields}>
+                <div className={styles.fields}>
                 <label htmlFor="cep">CEP:</label>
                 <input
                   type="text"
@@ -164,7 +193,7 @@ useEffect(() => {
                 </p>
               </div>
 
-               <div className={styles.fields}>
+                <div className={styles.fields}>
                 <label htmlFor="url">Url:</label>
                 <input
                   type="text"
@@ -187,7 +216,7 @@ useEffect(() => {
       <br />
       <Footer/>
     </div>
-)
-}
+  );
+};
 
-export default Update
+export default Update;
