@@ -23,7 +23,7 @@ export default function Header() {
 
       <div className={styles["menu"]}>
         <nav>
-            {/* {user && <h1>oi {user.nome}</h1>} */}
+            
           <ul>
             <li>
               <Link to="/">Home</Link>
@@ -38,9 +38,9 @@ export default function Header() {
                         <li>
                             <Link to="/loja">Produtos</Link>
                         </li>
-                        {user && user.Perfil==2 && <li>
+                        {/* {user && user.idPerfil==2 && <li>
                             <Link to="/carrinho">Carrinho</Link>
-                        </li>}
+                        </li>} */}
                         {user && user.idPerfil!==2 &&<li>
                             <Link to="/posts">Inserir</Link>
                         </li>}

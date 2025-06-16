@@ -102,3 +102,15 @@ p {
     position: absolute;
     font-family: 'Lora';
 }
+
+.containerPag{
+  background-color: #131314;
+  border-radius: 10px 10px 10px 10px ;
+  display: flex;
+}
+
+.butao{
+  align-self: center;
+  border-radius: 10px 10px 10px 10px;
+  border: 1px solid #760000;
+}
