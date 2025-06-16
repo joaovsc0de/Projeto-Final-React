@@ -46,7 +46,7 @@ const RecipeCard = ({ nome, valor, genero, url, id, deletePost }) => {
           </Link>
 
         
-         {user && <button className="btn btn-danger" onClick={() =>{
+         {user && user.idPerfil !==2 && <button className="btn btn-danger" onClick={() =>{
             console.log(nome);
             deletePost(parseInt(id))}
           } >
