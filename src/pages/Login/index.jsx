@@ -1,3 +1,4 @@
+
 import React, { useState, useContext } from 'react'; 
 import styles from './Login.module.css';
 import { FaUser, FaLock } from 'react-icons/fa';
@@ -7,9 +8,9 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext' 
 
 export default function Login() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
@@ -18,8 +19,9 @@ export default function Login() {
   const logar = async (event) => {
     event.preventDefault();
 
-    setError('');
+    setError("");
     setLoading(true);
+
 
       const success = await login(username, password); 
 
@@ -38,7 +40,11 @@ export default function Login() {
       <div className={styles.container}>
         <div className={styles.loginBox}>
           <div className={styles.logo}>
-            <img src="/src/assets/pngegg.png" alt="Dragon Store Logo" className={styles.logoImage} />
+            <img
+              src="/src/assets/pngegg.png"
+              alt="Dragon Store Logo"
+              className={styles.logoImage}
+            />
             <h1 className={styles.title}>Dragon Store</h1>
           </div>
           <form className={styles.form} onSubmit={logar}>
@@ -63,8 +69,8 @@ export default function Login() {
               <input
                 type="password"
                 placeholder="Digite sua senha"
-                id='password'
-                name='password'
+                id="password"
+                name="password"
                 className={styles.input}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -73,10 +79,14 @@ export default function Login() {
             </div>
 
             <button type="submit" className={styles.button} disabled={loading}>
-              {loading ? 'Entrando...' : 'Login'}
+              {loading ? "Entrando..." : "Login"}
             </button>
 
-            <button type="button" className={styles.registerButton} onClick={() => window.location.href = '/cadastro'}>
+            <button
+              type="button"
+              className={styles.registerButton}
+              onClick={() => (window.location.href = "/cadastro")}
+            >
               CADASTRAR
             </button>
            
